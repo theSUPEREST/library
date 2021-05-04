@@ -15,15 +15,20 @@ const bookList = document.getElementById('book-list');
 
 function displayBook(book) {
     const bookItem = document.createElement('div');
-    bookItem.textContent = book.title;
+    const bookItemTitle = document.createElement('h2');
+    bookItemTitle.textContent = book.title;
+    bookItem.appendChild(bookItemTitle);
+    const bookItemAuthor = document.createElement('p');
+    bookItemAuthor.textContent = book.author;
+    bookItem.appendChild(bookItemAuthor);
     bookList.appendChild(bookItem);
 }
 
 function displayAllBooks() {
-    bookList.innerHTML ="";
+    bookList.innerHTML =""; // refresh display
     myBooks.map(item => displayBook(item));
 }
-
+// Testing functionality
 const testBook0 = new Book('Test Title', 'Test Author', 100, false);
 const testBook1 = new Book('Test Title', 'Test Author', 100, false);
 
