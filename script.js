@@ -11,16 +11,29 @@ function addBook(book) {
     myBooks.push(book);
 }
 
+
+
 const bookList = document.getElementById('book-list');
+const bookForm = document.getElementById('add-book-form');
 
 function displayBook(book) {
     const bookItem = document.createElement('div');
+    bookItem.setAttribute('data-key', myBooks.indexOf(book))
+
     const bookItemTitle = document.createElement('h2');
     bookItemTitle.textContent = book.title;
     bookItem.appendChild(bookItemTitle);
+
     const bookItemAuthor = document.createElement('p');
     bookItemAuthor.textContent = book.author;
     bookItem.appendChild(bookItemAuthor);
+
+    const bookItemDelete = document.createElement('button');
+    bookItemDelete.textContent = "Delete";
+    bookItemDelete.setAttribute('id', 'delete');
+    bookItemDelete.addEventListener('click', deleteBook);
+    bookItem.appendChild(bookItemDelete);
+
     bookList.appendChild(bookItem);
 }
 
@@ -29,26 +42,44 @@ function displayAllBooks() {
     myBooks.map(item => displayBook(item));
 }
 
-function createBook(e) {
-    const title = e.target.form[0].value;
-    const author = (e.target.form[1].value);
-    const pages = (e.target.form[2].value);
-    const completed = (e.target.form[3].checked);
+function createBook() {
+    if (!bookForm[0].value){
+        return;
+    }
+    const title = (bookForm[0].value);
+    const author = (bookForm[1].value);
+    const pages = (bookForm[2].value);
+    const completed = (bookForm[3].checked);
     console.log(title, author, pages, completed)
+    clearForm()
     const book = new Book(title, author, pages, completed)
     addBook(book);
+    displayAllBooks(myBooks);
+}
+
+function deleteBook(e) {
+    const index = e.target.parentElement.dataset.key;
+    myBooks.splice(index, 1);
+    displayAllBooks();
+}
+
+function clearForm() {
+    bookForm[0].value = ''
+    bookForm[1].value = ''
+    bookForm[2].value = ''
+    bookForm[3].checked = false
 }
 
 const addButton = document.getElementById('add');
 addButton.addEventListener('click', createBook);
 
+const cancelButton = document.getElementById('cancel');
+cancelButton.addEventListener('click', clearForm);
+
+const deleteButton = document.getElementById('delete');
+deleteButton.addEventListener('click', deleteBook)
 
 // Testing functionality
-const testBook0 = new Book('Test Title', 'Test Author', 100, false);
-const testBook1 = new Book('Test Title', 'Test Author', 100, false);
-
-addBook(testBook0);
-addBook(testBook1);
 
 
-displayAllBooks(myBooks);
+//displayAllBooks(myBooks);
