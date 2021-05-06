@@ -14,9 +14,11 @@
     </head>
     <body>
         <main>
-            <h1>myBookList</h1>
-            <hr>
-            <button id="add-menu-btn">Add Book</button>
+            <nav>
+                <h1>myBookList</h1>
+                <button id="add-menu-btn">Add Book</button>
+            </nav>
+
             <form action="#" id="add-book-form">
                 <label for="title">Title:</label>
                 <input type="text" id="title">
@@ -28,6 +30,18 @@
                 <input type="checkbox" id="completed">
                 <button id="add">Add</button>
                 <button id="cancel">Cancel</button>
+            </form>
+            <form action="#" id="edit-book-form">
+                <label for="edit-title">Title:</label>
+                <input type="text" id="edit-title">
+                <label for="edit-author">Author:</label>
+                <input type="text" id="edit-author">
+                <label for="edit-pages">Pages:</label>
+                <input type="number" id="edit-pages">
+                <label for="edit-completed">Completed?:</label>
+                <input type="checkbox" id="edit-completed">
+                <button id="edit-edit">Edit</button>
+                <button id="edit-cancel">Cancel</button>
             </form>
             <section>
                 <div id="book-list">
