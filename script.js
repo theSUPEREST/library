@@ -7,6 +7,10 @@ function Book(title, author, pages, read) {
     this.read = read
 }
 
+Book.prototype.toggleReadStatus = function() {
+    this.read = !this.read;
+}
+
 function addBook(book) {
     myBooks.push(book);
 }
@@ -34,8 +38,26 @@ function displayBook(book) {
     bookItemDelete.addEventListener('click', deleteBook);
     bookItem.appendChild(bookItemDelete);
 
+    const bookItemCheckbox = document.createElement('input');
+    bookItemCheckbox.setAttribute('type', 'checkbox');
+    if (book.read === true) {
+        bookItemCheckbox.checked = true;
+    }
+    bookItemCheckbox.addEventListener('click', (e) => {
+        myBooks[e.target.parentElement.dataset.key].toggleReadStatus()
+    });
+
+    const bookItemCheckboxLabel = document.createElement('label');
+    bookItemCheckboxLabel.textContent = ('Completed?');
+    bookItem.appendChild(bookItemCheckboxLabel);
+
+    bookItem.appendChild(bookItemCheckbox);
+
+
     bookList.appendChild(bookItem);
 }
+
+
 
 function displayAllBooks() {
     bookList.innerHTML =""; // refresh display
@@ -50,7 +72,6 @@ function createBook() {
     const author = (bookForm[1].value);
     const pages = (bookForm[2].value);
     const completed = (bookForm[3].checked);
-    console.log(title, author, pages, completed)
     clearForm()
     const book = new Book(title, author, pages, completed)
     addBook(book);
