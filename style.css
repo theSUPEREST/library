@@ -57,6 +57,13 @@ header {
     align-items: center;
 }
 
+.abs-ctr {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 .side-btn {
     height: 40px;
     border: none;
@@ -80,9 +87,22 @@ header {
 
 main {
     margin-left: 220px;
+    position: relative;
 }
 
-form {
+.form-fields {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    justify-items: start;
+    padding: 5px;
+    gap: 5px;
+}
+
+.form-btns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 5px;
+    gap: 5px;
 }
 
 .hidden {

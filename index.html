@@ -35,17 +35,21 @@
             </nav>
         </div>
         <main>
-            <form action="#" class="hidden" id="add-book-form">
-                <label for="title">Title:</label>
-                <input type="text" id="title">
-                <label for="author">Author:</label>
-                <input type="text" id="author">
-                <label for="pages">Pages:</label>
-                <input type="number" id="pages">
-                <label for="completed">Completed?:</label>
-                <input type="checkbox" id="completed">
-                <button id="add">Add</button>
-                <button id="cancel">Cancel</button>
+            <form action="#" class="hidden abs-ctr flex-col" id="add-book-form">
+                <div class="form-fields">
+                    <label for="title">Title:</label>
+                    <input type="text" id="title">
+                    <label for="author">Author:</label>
+                    <input type="text" id="author">
+                    <label for="pages">Pages:</label>
+                    <input type="number" id="pages">
+                    <label for="completed">Completed?:</label>
+                    <input type="checkbox" id="completed">
+                </div>
+                <div class="form-btns">
+                    <button id="add">Add</button>
+                    <button id="cancel">Cancel</button>
+                </div>
             </form>
             <form action="#" class="hidden" id="edit-book-form">
                 <label for="edit-title">Title:</label>
