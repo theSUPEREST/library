@@ -123,17 +123,17 @@ function clearEditForm() {
 }
 
 function showAddBookForm() {
-    bookForm.classList.add('visible');
+    bookForm.classList.remove('hidden');
 }
 function hideAddBookForm() {
-    bookForm.classList.remove('visible');
+    bookForm.classList.add('hidden');
 }
 function showEditBookForm(e) {
-    editBookForm.classList.add('visible');
+    editBookForm.classList.remove('hidden');
     editBookForm.setAttribute('data-key', e.target.parentElement.dataset.key)
 }
 function hideEditBookForm() {
-    editBookForm.classList.remove('visible');
+    editBookForm.classList.add('hidden');
 }
 
 // Add Book Form & Buttons
