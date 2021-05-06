@@ -1,8 +1,87 @@
 html, body {
     margin: 0;
     padding: 0;
+    background-color: rgb(238, 238, 238);
+    font-family: 'Open Sans', sans-serif;
+    height: 100%;
 }
 
+button {
+    padding: 0;
+}
+
+h1, h2 {
+    margin: 0
+}
+
+h1 {
+    font-weight: 300;
+    display: inline-block;
+    font-size: 24px;
+}
+
+.sidebar {
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 220px;
+    background-color: rgb(82, 82, 82);
+    color: white;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 20px;
+    background-color: rgb(118, 188, 206);
+}
+
+.flex-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-row-c-c {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-row-c-sb {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.side-btn {
+    height: 40px;
+    border: none;
+    color: white;
+    background-color: transparent;
+    font-size: 12px;
+    padding: 8px 20px;
+}
+
+.side-btn:hover {
+    background-color: rgb(44, 44, 44);
+}
+
+.side-btn-icon {
+    margin-right: 8px;
+}
+
+.next-arrow {
+    color:rgb(190, 190, 190);
+}
+
+
+main {
+    margin-left: 220px;
+}
 form {
     display: none;
 }

@@ -10,15 +10,31 @@
         <title>Library App</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet"> 
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <main>
-            <nav>
+        <div class="sidebar">
+            <header class="title-logo">
                 <h1>myBookList</h1>
-                <button id="add-menu-btn">Add Book</button>
+                <span class="material-icons">
+                    menu_book
+                </span>
+            </header>
+            <nav class="flex-col">
+                <button class="side-btn flex-row-c-sb" id="add-menu-btn">
+                    <span class="flex-row-c-c">
+                        <span class="material-icons side-btn-icon">add_circle</span>
+                        Add Book
+                    </span>
+                    <span class="material-icons next-arrow">navigate_next</span>
+                </button>
             </nav>
-
+        </div>
+        <main>
             <form action="#" id="add-book-form">
                 <label for="title">Title:</label>
                 <input type="text" id="title">
@@ -45,15 +61,6 @@
             </form>
             <section>
                 <div id="book-list">
-                    <!-- Test formatting -->
-                    <div class="book">
-                        <h2>Title</h2>
-                        <p>Author</p>
-                        <label for="completed">Completed?:</label>
-                        <input type="checkbox" id="completed">
-                        <button>Edit</button>
-                        <button id="delete">Delete</button>
-                    </div>
                 </div>
             </section>
         </main>
