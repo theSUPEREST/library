@@ -107,6 +107,10 @@ main {
 }
 
 .hidden {
+    display: none;
+}
+
+.slidden {
     transform: translate(-220px);
 }
 

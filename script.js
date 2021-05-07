@@ -123,10 +123,10 @@ function clearEditForm() {
 }
 
 function showAddBookForm() {
-    bookForm.classList.remove('hidden');
+    bookForm.classList.remove('slidden');
 }
 function hideAddBookForm() {
-    bookForm.classList.add('hidden');
+    bookForm.classList.add('slidden');
 }
 function showEditBookForm(e) {
     editBookForm.classList.remove('hidden');
