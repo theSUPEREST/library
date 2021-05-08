@@ -28,13 +28,16 @@ const bookForm = document.getElementById('add-book-form');
 function displayBook(book) {
     const bookItem = document.createElement('div');
     bookItem.setAttribute('data-key', myBooks.indexOf(book))
+    bookItem.classList.add('book-entry')
 
     const bookItemTitle = document.createElement('h2');
     bookItemTitle.textContent = book.title;
+    bookItemTitle.classList.add('book-title');
     bookItem.appendChild(bookItemTitle);
 
     const bookItemAuthor = document.createElement('p');
     bookItemAuthor.textContent = book.author;
+    bookItemAuthor.classList.add('book-author');
     bookItem.appendChild(bookItemAuthor);
 
     const bookItemCheckbox = document.createElement('input');
@@ -48,18 +51,20 @@ function displayBook(book) {
 
     const bookItemCheckboxLabel = document.createElement('label');
     bookItemCheckboxLabel.textContent = ('Completed?');
-    bookItem.appendChild(bookItemCheckboxLabel);
-    bookItem.appendChild(bookItemCheckbox);
+    //bookItem.appendChild(bookItemCheckboxLabel);
+    //bookItem.appendChild(bookItemCheckbox);
 
     const bookItemDelete = document.createElement('button');
-    bookItemDelete.textContent = "Delete";
+    bookItemDelete.textContent = "DELETE";
     bookItemDelete.setAttribute('id', 'delete');
+    bookItemDelete.classList.add('book-delete', 'book-button')
     bookItemDelete.addEventListener('click', deleteBook);
     bookItem.appendChild(bookItemDelete);
 
     const bookItemEdit = document.createElement('button');
-    bookItemEdit.textContent = "Edit";
+    bookItemEdit.textContent = "EDIT";
     bookItemEdit.setAttribute('id', 'edit');
+    bookItemEdit.classList.add('book-edit', 'book-button')
     bookItemEdit.addEventListener('click', showEditBookForm);
     bookItem.appendChild(bookItemEdit);
 

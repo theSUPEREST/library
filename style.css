@@ -10,7 +10,7 @@ button {
     padding: 0;
 }
 
-h1, h2 {
+h1, h2, p {
     margin: 0
 }
 
@@ -128,4 +128,44 @@ main {
     width: 220px;
     transition: 0.3s;
     z-index: 1;
+}
+
+.book-entry {
+    display: grid;
+    padding: 15px;
+    margin: 0 30px;
+    grid-template-areas: 
+        "title edit"
+        "author delete";
+    grid-template-columns: 1fr 100px;
+    grid-template-rows: 35px 35px;
+    align-items: center;
+    border-top: 1px solid rgb(202, 202, 202);
+}
+
+.book-title {
+    grid-area: title;
+}
+
+.book-author {
+    grid-area: author;
+    color: rgb(224, 127, 0);
+}
+
+.book-button {
+    border: none;
+    border-radius: 3px;
+    padding: 5px;
+}
+
+.book-delete {
+    grid-area: delete;
+    background-color: rgb(224, 63, 0);
+    color: white;
+}
+
+.book-edit {
+    grid-area: edit;
+    color: white;
+    background-color: rgb(73, 160, 182); 
 }
