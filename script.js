@@ -134,6 +134,15 @@ function hideAddBookForm() {
     bookForm.classList.add('slidden');
 }
 function showEditBookForm(e) {
+    const index = e.target.parentElement.dataset.key;
+    const editEntry = document.querySelector(`div[data-key="${index}"]`)
+    editEntry.innerHTML = "";
+    const editTitle = document.createElement('input');
+    editEntry.appendChild(editTitle);
+
+
+    
+    console.log(editEntry);
     editBookForm.classList.remove('hidden');
     editBookForm.setAttribute('data-key', e.target.parentElement.dataset.key)
 }
