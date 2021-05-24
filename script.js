@@ -137,8 +137,23 @@ function showEditBookForm(e) {
     const index = e.target.parentElement.dataset.key;
     const editEntry = document.querySelector(`div[data-key="${index}"]`)
     editEntry.innerHTML = "";
+
     const editTitle = document.createElement('input');
     editEntry.appendChild(editTitle);
+
+    const editFormSubmitButton = document.createElement('button');
+    editFormSubmitButton.classList.add('book-edit', 'book-button')
+    editFormSubmitButton.textContent = "SUBMIT";
+    editEntry.appendChild(editFormSubmitButton);
+
+    const editAuthor = document.createElement('input');
+    editEntry.appendChild(editAuthor);
+    
+    const editFormCancelButton = document.createElement('button');
+    editFormCancelButton.classList.add('book-delete', 'book-button')
+    editFormCancelButton.textContent = "CANCEL";
+    editFormCancelButton.addEventListener('click', displayAllBooks)
+    editEntry.appendChild(editFormCancelButton);
 
 
     
