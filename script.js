@@ -92,17 +92,16 @@ function createBook() {
 }
 
 function editBookInfo(e) {
-    if (!editBookForm[0].value){
-        return;
-    }
-    const title = (editBookForm[0].value);
-    const author = (editBookForm[1].value);
-    const pages = (editBookForm[2].value);
-    const completed = (editBookForm[3].checked);
+    
+    const title = (e.target.parentElement.children[0].value);
+    const author = (e.target.parentElement.children[2].value);
+    //const pages = (editBookForm[2].value);
+    //const completed = (editBookForm[3].checked);
     clearEditForm()
     hideEditBookForm();
-    myBooks[e.target.parentElement.dataset.key].editBookInfo(title, author, pages, completed)
+    myBooks[e.target.parentElement.dataset.key].editBookInfo(title, author) //, pages, completed)
     displayAllBooks(myBooks);
+    console.log(myBooks)
 }
 
 function deleteBook(e) {
@@ -144,6 +143,7 @@ function showEditBookForm(e) {
     const editFormSubmitButton = document.createElement('button');
     editFormSubmitButton.classList.add('book-edit', 'book-button')
     editFormSubmitButton.textContent = "SUBMIT";
+    editFormSubmitButton.addEventListener('click', editBookInfo)
     editEntry.appendChild(editFormSubmitButton);
 
     const editAuthor = document.createElement('input');
@@ -154,12 +154,6 @@ function showEditBookForm(e) {
     editFormCancelButton.textContent = "CANCEL";
     editFormCancelButton.addEventListener('click', displayAllBooks)
     editEntry.appendChild(editFormCancelButton);
-
-
-    
-    console.log(editEntry);
-    editBookForm.classList.remove('hidden');
-    editBookForm.setAttribute('data-key', e.target.parentElement.dataset.key)
 }
 function hideEditBookForm() {
     editBookForm.classList.add('hidden');
